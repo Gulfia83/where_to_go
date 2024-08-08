@@ -9,22 +9,22 @@ def index(request):
     places = Place.objects.all()
 
     places_json = {
-        "type": "FeatureCollection",
-            "features": []
+        'type': 'FeatureCollection',
+            'features': []
             }
     
     for place in places:
-        places_json["features"].append(
+        places_json['features'].append(
             {
-                "type": "Feature",
-                "geometry": {
-                "type": "Point",
-                "coordinates": [place.lon, place.lat]
+                'type': 'Feature',
+                'geometry': {
+                'type': 'Point',
+                'coordinates': [place.lon, place.lat]
                 },
-                "properties": {
-                "title": place.title,
-                "placeId": place.id,
-                "detailsUrl": reverse('place', kwargs={'place_id': place.pk})
+                'properties': {
+                'title': place.title,
+                'placeId': place.id,
+                'detailsUrl': reverse('place', kwargs={'place_id': place.pk})
                 }
             },           
         )
@@ -48,6 +48,3 @@ def place(request, place_id):
 
     return JsonResponse(place_details,
                         json_dumps_params={'ensure_ascii': False, 'indent': 4})
-
-
-
