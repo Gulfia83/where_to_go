@@ -15,6 +15,7 @@ class Place(models.Model):
     lon = models.FloatField(verbose_name='Долгота',
                             null=True)
     
+    
     def __str__(self):
         return self.title
 
@@ -28,5 +29,11 @@ class Image(models.Model):
     order = models.PositiveIntegerField(verbose_name='Порядковый номер',
                                         default=0)
     
+
     def __str__(self):
         return self.place.title
+    
+
+    class Meta:
+        ordering = ['order']
+        verbose_name_plural = "Фотографии"
