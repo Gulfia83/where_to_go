@@ -6,6 +6,8 @@ A site about the most interesting places in Moscow.
 
 ## Demo version of the site
 
+[Демо-версия](https://gulfia83.pythonanywhere.com/)
+
 ## Setting up environment variables
 Create a `.env` file next to the `manage.py` file
 
