@@ -12,13 +12,9 @@ class PlaceImageStackedInline(SortableStackedInline):
     readonly_fields = ['get_preview']
 
     def get_preview(self, obj):
-        url = obj.img.url
-        width = 200
-        height = 150
-
+        
         return format_html(
-           '{}',
-           mark_safe(f'<img src="{url}" width="{width}" height={height} />')
+           '<img src="{}" height="200">', obj.img.url
            )
 
 
