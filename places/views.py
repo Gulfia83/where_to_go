@@ -10,23 +10,23 @@ def index(request):
 
     places_json = {
         'type': 'FeatureCollection',
-            'features': []
+        'features': []
             }
-    
+
     for place in places:
         places_json['features'].append(
             {
                 'type': 'Feature',
                 'geometry': {
-                'type': 'Point',
-                'coordinates': [place.lon, place.lat]
+                    'type': 'Point',
+                    'coordinates': [place.lon, place.lat]
                 },
                 'properties': {
-                'title': place.title,
-                'placeId': place.id,
-                'detailsUrl': reverse('place', kwargs={'place_id': place.pk})
+                    'title': place.title,
+                    'placeId': place.id,
+                    'detailsUrl': reverse('place', kwargs={'place_id': place.pk})
                 }
-            },           
+            },
         )
 
     context = {'places': places_json}

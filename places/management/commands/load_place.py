@@ -28,15 +28,14 @@ class Command(BaseCommand):
             )
             image_obj.img.save(image_name, image, save=True)
 
-
     def handle(self, *args, **options):
         url = options['json_url']
         response = requests.get(url)
         response.raise_for_status
         response_json = response.json()
         place, created = Place.objects.get_or_create(
-            title = response_json['title'],
-            defaults= {
+            title=response_json['title'],
+            defaults={
                 'description_short': response_json['description_short'],
                 'description_long': response_json['description_long'],
                 'lat': response_json['coordinates']['lat'],
