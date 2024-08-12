@@ -2,7 +2,8 @@
 [Russian](RU_README.md)
 
 A site about the most interesting places in Moscow.
-![&#x41A;&#x443;&#x434;&#x430; &#x43F;&#x43E;&#x439;&#x442;&#x438;](.gitbook/assets/site.png)
+![Куда пойти](https://github.com/user-attachments/assets/7794d2e8-bab8-4d4b-ae82-c7993b2cf923)
+
 
 ## Demo version of the site
 
