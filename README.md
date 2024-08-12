@@ -9,17 +9,17 @@ A site about the most interesting places in Moscow.
 [Демо-версия](https://gulfia83.pythonanywhere.com/)
 
 ## Setting up environment variables
-Create a `.env` file next to the `manage.py` file
+Create a `.env` file next to the `manage.py` file and fill in this data:
 
-Create or generate a secret key and save it in `.env`:
-```
-SECRET_KEY=<Your secret key>
-```
-If you want to enable debug mode, save the `DEBUG` variable as well:
-```
-DEBUG=True
-```
-Create the `ALLOWED_HOSTS` variable
+- SECRET_KEY -
+    Default: '' (Empty string).
+    A secret key for a particular Django installation. This is used to provide cryptographic signing, and should be set to a unique, unpredictable value.
+    django-admin startproject automatically adds a randomly-generated SECRET_KEY to each new project.
+- DEBUG -
+    One of the main features of debug mode is the display of detailed error pages. If your app raises an exception when DEBUG is True, Django will display a detailed traceback, including a lot of metadata about your environment, such as all the currently defined Django settings (from settings.py)
+- ALLOWED_HOSTS -
+    Default: [] (Empty list).
+    A list of strings representing the host/domain names that this Django site can serve. This is a security measure to prevent HTTP Host header attacks, which are possible even under many seemingly-safe web server configurations.
 
 ## Launch
 
