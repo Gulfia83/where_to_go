@@ -38,8 +38,8 @@ class Command(BaseCommand):
         place, created = Place.objects.get_or_create(
             title=response_json['title'],
             defaults={
-                'description_short': response_json['description_short'],
-                'description_long': response_json['description_long'],
+                'short_description': response_json['description_short'],
+                'long_description': response_json['description_long'],
                 'lat': response_json['coordinates']['lat'],
                 'lon': response_json['coordinates']['lng']
                 }

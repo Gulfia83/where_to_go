@@ -25,6 +25,4 @@ class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     search_fields = ['title']
 
 
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    list_display = ('order', 'place')
+admin.site.register(Image)
