@@ -8,14 +8,9 @@ from .models import Place
 def index(request):
     places = Place.objects.all()
 
-    places_json = {
+    places_details = {
         'type': 'FeatureCollection',
-        'features': []
-            }
-
-    for place in places:
-        places_json['features'].append(
-            {
+        'features': [{
                 'type': 'Feature',
                 'geometry': {
                     'type': 'Point',
@@ -26,10 +21,10 @@ def index(request):
                     'placeId': place.id,
                     'detailsUrl': reverse('place', kwargs={'place_id': place.pk})
                 }
-            },
-        )
+            } for place in places]
+            }
 
-    context = {'places': places_json}
+    context = {'places': places_details}
     return render(request, 'index.html', context)
 
 

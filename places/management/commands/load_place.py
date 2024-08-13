@@ -34,16 +34,16 @@ class Command(BaseCommand):
         url = options['json_url']
         response = requests.get(url)
         response.raise_for_status
-        response_json = response.json()
+        decoded_response = response.json()
         place, created = Place.objects.get_or_create(
-            title=response_json['title'],
+            title=decoded_response['title'],
             defaults={
-                'short_description': response_json['description_short'],
-                'long_description': response_json['description_long'],
-                'lat': response_json['coordinates']['lat'],
-                'lon': response_json['coordinates']['lng']
+                'short_description': decoded_response['description_short'],
+                'long_description': decoded_response['description_long'],
+                'lat': decoded_response['coordinates']['lat'],
+                'lon': decoded_response['coordinates']['lng']
                 }
         )
 
-        self.upload_images(place, response_json['imgs'])
+        self.upload_images(place, decoded_response['imgs'])
         self.stdout.write(self.style.SUCCESS('Data loaded'))
