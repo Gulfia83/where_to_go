@@ -1,8 +1,10 @@
-from django.core.management.base import BaseCommand
-import requests
 import os
-from places.models import Place
 from io import BytesIO
+
+import requests
+from django.core.management.base import BaseCommand
+
+from places.models import Place
 
 
 class Command(BaseCommand):
