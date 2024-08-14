@@ -13,7 +13,7 @@ class PlaceImageStackedInline(SortableStackedInline):
     def get_preview(self, obj):
 
         return format_html(
-           '<img src="{}" max-height="200">', obj.img.url
+           '<img src="{}" style="max-height: 200px;">', obj.img.url
            )
 
 
