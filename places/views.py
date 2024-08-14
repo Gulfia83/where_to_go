@@ -8,9 +8,7 @@ from .models import Place
 def index(request):
     places = Place.objects.all()
 
-    places_details = {
-        'type': 'FeatureCollection',
-        'features': [{
+    features = [{
                 'type': 'Feature',
                 'geometry': {
                     'type': 'Point',
@@ -20,8 +18,12 @@ def index(request):
                     'title': place.title,
                     'placeId': place.id,
                     'detailsUrl': reverse('place', kwargs={'place_id': place.pk})
-                }
-            } for place in places]
+                    }
+                } for place in places]
+
+    places_details = {
+        'type': 'FeatureCollection',
+        'features': features
             }
 
     context = {'places': places_details}
